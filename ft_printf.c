@@ -6,18 +6,26 @@
 /*   By: smarquez <smarquez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/16 11:41:39 by smarquez          #+#    #+#             */
-/*   Updated: 2024/10/16 14:02:09 by smarquez         ###   ########.fr       */
+/*   Updated: 2024/10/16 15:52:38 by smarquez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdarg.h>
-#include <stdio.h>
-
+#include "ft_printf.h"
+static int	specifier_ft(char specifier, va_list args)
+{
+	if (specifier == 'd' || specifier == 'i')
+		return(ft_putnbr(va_arg(args, int)));
+	else if (specifier == 's')
+		return(ft_putstr(va_arg(args, char *)));
+	else if (specifier == 'c')
+		return(ft_putchar(va_arg(args, int)));
+}
 int	ft_printf(char const *format, ...)
 {
 	va_list	vargs;
 	char	specifier;
-	int		num;
+	int result;
 
 	va_start(vargs, format);
 	while (*format)
@@ -26,16 +34,14 @@ int	ft_printf(char const *format, ...)
 		{
 			specifier = data_type(format);
 			format++;
-			if (specifier == 'd')
-			{
-				num = va_arg(vargs, int);
-			}
+			result += specifier_ft(specifier, vargs);
 		}
-		else
-	}
+		
 }
 
 char	data_type(const char *format)
 {
 	return (*(format + 1));
 }
+
+
