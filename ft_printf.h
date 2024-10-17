@@ -5,11 +5,15 @@
 #include <stdlib.h>
 # include <stdio.h>
 # include <unistd.h>
+#include <stddef.h>
 
 
 
 int ft_putnbr(int nb);
-void	ft_putstr_fd(char *s);
+char	*ft_putstr(char *s);
+char ft_putchar(int c);
+int ft_putnbru(unsigned int nbr);
+
 
 
 

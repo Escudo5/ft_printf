@@ -6,11 +6,13 @@
 /*   By: smarquez <smarquez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/16 15:37:25 by smarquez          #+#    #+#             */
-/*   Updated: 2024/10/16 15:37:40 by smarquez         ###   ########.fr       */
+/*   Updated: 2024/10/17 13:03:36 by smarquez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	ft_putstr_fd(char *s)
+#include "printf.h"
+
+char 	*ft_putstr(char *s)
 {
 	size_t	i;
 
@@ -19,7 +21,7 @@ void	ft_putstr_fd(char *s)
 	i = 0;
 	while (s[i] != '\0')
 	{
-		ft_putchar_fd(s[i]);
+		ft_putchar(s[i]);
 		i++;
 	}
 }

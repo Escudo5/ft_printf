@@ -1,34 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr.c                                        :+:      :+:    :+:   */
+/*   ft_putnbru.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: smarquez <smarquez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/16 15:31:50 by smarquez          #+#    #+#             */
-/*   Updated: 2024/10/17 12:43:41 by smarquez         ###   ########.fr       */
+/*   Created: 2024/10/17 12:53:46 by smarquez          #+#    #+#             */
+/*   Updated: 2024/10/17 13:01:56 by smarquez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
-#include "ft_printf.h"
-
-void	ft_putnbr(int n)
-{
-	if (n == -2147483648)
-	{
-		ft_putchar('-');
-		ft_putchar('2');
-		n = 147483648;
-	}
-	if (n < 0)
-	{
-		ft_putchar('-');
-		n = -n;
-	}
-	if (n >= 10)
-	{
-		ft_putnbr(n / 10);
-	}
-	ft_putchar((n % 10) + '0');
+#include "printf.h"
+int ft_putnbru(unsigned int nbr)
+{   
+    if (nbr > 9)
+       ft_putchar(nbr / 10);
+    ft_putchar((nbr % 10) + '0');
 }
