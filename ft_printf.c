@@ -6,7 +6,7 @@
 /*   By: smarquez <smarquez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/16 11:41:39 by smarquez          #+#    #+#             */
-/*   Updated: 2024/10/17 13:12:01 by smarquez         ###   ########.fr       */
+/*   Updated: 2024/10/17 13:15:00 by smarquez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ static int	specifier_ft(char specifier, va_list args)
 	else if (specifier == 'u')
 		return (ft_putnbru(va_arg(args, int)));
 	else if (specifier == 'p')
+		
 }
 	char data_type(const char *format)
 	{
