@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: smarquez <smarquez@student.42.fr>          +#+  +:+       +#+        */
+/*   By: escudo5 <escudo5@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/16 11:41:39 by smarquez          #+#    #+#             */
-/*   Updated: 2024/10/17 13:15:00 by smarquez         ###   ########.fr       */
+/*   Updated: 2024/10/18 12:52:11 by escudo5          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,4 +46,4 @@ int	ft_printf(char const *format, ...)
 			result += specifier_ft(specifier, vargs);
 		}
 	}
-
+}
