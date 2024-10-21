@@ -1,42 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putptr.c                                        :+:      :+:    :+:   */
+/*   ft_hexadec_u.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: smarquez <smarquez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/18 12:54:17 by escudo5           #+#    #+#             */
-/*   Updated: 2024/10/21 11:45:45 by smarquez         ###   ########.fr       */
+/*   Created: 2024/10/21 15:34:25 by smarquez          #+#    #+#             */
+/*   Updated: 2024/10/21 15:49:34 by smarquez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "printf.h"
 
-int	ft_putptr(void *ptr)
+int	ft_hexadec_u(unsigned int nbr)
 {
-	unsigned long address;
-	char hex_digits[] = "0123456789abcdef";
-	char buffer[16];
-	int i;
-	i = 0;
+	char	hex_digits[] = "0123456789ABCEDF";
+	char	buffer[16];
+	int		i;
+	int		printed_chars;
 
-	address = (unsigned long)ptr;
-	write(1, "0x", 2);
-	if (address == 0)
+	i = 0;
+	printed_chars = 0;
+	if (nbr == 0)
 	{
-		write(1, '0', 1);
-		return (3);
+		write(1, "0", 1);
+		return (1);
 	}
-	while (address > 0)
+	while (nbr > 0)
 	{
-		buffer[i] = hex_digits[address % 16];
-		address /= 16;
+		buffer[i] = hex_digits[nbr % 16];
+		nbr /= 16;
 		i++;
 	}
 	while (i > 0)
 	{
 		i--;
 		write(1, &buffer[i], 1);
+		printed_chars++;
 	}
-	return (i + 2);
+	return (printed_chars);
 }

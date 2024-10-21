@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: escudo5 <escudo5@student.42.fr>            +#+  +:+       +#+        */
+/*   By: smarquez <smarquez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/16 11:41:39 by smarquez          #+#    #+#             */
-/*   Updated: 2024/10/18 12:52:11 by escudo5          ###   ########.fr       */
+/*   Updated: 2024/10/21 15:49:44 by smarquez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,18 +23,24 @@ static int	specifier_ft(char specifier, va_list args)
 	else if (specifier == 'u')
 		return (ft_putnbru(va_arg(args, int)));
 	else if (specifier == 'p')
-		
+		return (ft_putptr(va_arg(args, int)));
+	else if (specifier == 'x')
+		return (ft_hexadec(va_arg(args, int)));
+	else if (specifier == 'X')
+		return (ft_hexadec_u(va_arg(args, int)));
+	else if (specifier == '%')
+		return (ft_putchar('%'));
 }
-	char data_type(const char *format)
-	{
-		return (*(format + 1));
-	}
-	
+char	data_type(const char *format)
+{
+	return (*(format + 1));
+}
+
 int	ft_printf(char const *format, ...)
 {
-	va_list vargs;
-	char specifier;
-	int result;
+	va_list	vargs;
+	char	specifier;
+	int		result;
 
 	va_start(vargs, format);
 	while (*format)
