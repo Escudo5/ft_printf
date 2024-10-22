@@ -6,7 +6,7 @@
 /*   By: smarquez <smarquez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/16 11:41:39 by smarquez          #+#    #+#             */
-/*   Updated: 2024/10/21 16:23:04 by smarquez         ###   ########.fr       */
+/*   Updated: 2024/10/22 11:09:17 by smarquez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,32 @@ static int	specifier_ft(char specifier, va_list args)
 		return (ft_putchar('%'));
 	return (0);
 }
-char	data_type(const char *format)
+
+int	print_normal_char(char *format)
 {
-	return (*(format + 1));
+	write(1, format, 1);
+	return (1);
+}
+
+int	handle_specifier(const char **format, va_list vargs)
+{
+	int	result;
+
+	result = 0;
+	if (**format == '%' && *(*format + 1) == '%')
+	{
+		write(1, "%", 1);
+		result++;
+		*format += 2;
+		return (1);
+	}
+	else if (**format == '%')
+	{
+		(*format)++;
+		result = specifier_ft(**format, vargs);
+		(*format)++;
+	}
+	return (result);
 }
 
 int	ft_printf(char const *format, ...)
@@ -42,25 +65,17 @@ int	ft_printf(char const *format, ...)
 	va_list	vargs;
 	char	specifier;
 	int		result;
-	result = 0;
 
+	result = 0;
 	va_start(vargs, format);
 	while (*format)
 	{
 		if (*format == '%')
-		{
-			specifier = data_type(format);
-			format++;
-			result += specifier_ft(specifier, vargs);
-		}
-		else 
-		{
-			write(1, format, 1);
-			result++;
-		}
+			result += handle_specifier(&format, vargs);
+		else
+			result += print_normal_char(format);
 		format++;
 	}
 	va_end(vargs);
 	return (result);
 }
-
