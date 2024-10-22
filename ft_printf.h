@@ -19,14 +19,4 @@ int	ft_hexadec_u(unsigned int nbr);
 
 
 
-
-
-
-
-
-
-
-
-
-
 #endif
