@@ -6,11 +6,11 @@
 /*   By: smarquez <smarquez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/18 12:54:17 by escudo5           #+#    #+#             */
-/*   Updated: 2024/10/21 11:45:45 by smarquez         ###   ########.fr       */
+/*   Updated: 2024/10/23 11:15:48 by smarquez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
+#include "ft_printf.h"
 
 int	ft_putptr(void *ptr)
 {
@@ -24,7 +24,7 @@ int	ft_putptr(void *ptr)
 	write(1, "0x", 2);
 	if (address == 0)
 	{
-		write(1, '0', 1);
+		write(1, "0", 1);
 		return (3);
 	}
 	while (address > 0)

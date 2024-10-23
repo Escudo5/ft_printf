@@ -6,22 +6,26 @@
 /*   By: smarquez <smarquez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/16 15:37:25 by smarquez          #+#    #+#             */
-/*   Updated: 2024/10/17 13:03:36 by smarquez         ###   ########.fr       */
+/*   Updated: 2024/10/23 11:12:06 by smarquez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
+#include "ft_printf.h"
 
-char 	*ft_putstr(char *s)
+int	ft_putstr(char *str)
 {
-	size_t	i;
+	int	len;
 
-	if (s == NULL)
-		return ;
-	i = 0;
-	while (s[i] != '\0')
+	len = 0;
+	if (!str)
 	{
-		ft_putchar(s[i]);
-		i++;
+		write(1, "(null)", 6);
+		return (6);
 	}
+	while (str[len] != '\0')
+	{
+		write(1, &str[len], 1);
+		len++;
+	}
+	return (len);
 }

@@ -6,9 +6,11 @@
 /*   By: smarquez <smarquez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/16 15:39:33 by smarquez          #+#    #+#             */
-/*   Updated: 2024/10/16 15:41:27 by smarquez         ###   ########.fr       */
+/*   Updated: 2024/10/23 11:11:50 by smarquez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "ft_printf.h"
 
 char ft_putchar(int c)
 {

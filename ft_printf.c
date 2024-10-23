@@ -6,7 +6,7 @@
 /*   By: smarquez <smarquez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/16 11:41:39 by smarquez          #+#    #+#             */
-/*   Updated: 2024/10/22 11:09:17 by smarquez         ###   ########.fr       */
+/*   Updated: 2024/10/23 11:23:24 by smarquez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ static int	specifier_ft(char specifier, va_list args)
 	return (0);
 }
 
-int	print_normal_char(char *format)
+int	print_normal_char(const char *format)
 {
 	write(1, format, 1);
 	return (1);
