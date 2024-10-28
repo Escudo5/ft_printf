@@ -6,7 +6,7 @@
 /*   By: smarquez <smarquez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/21 15:34:25 by smarquez          #+#    #+#             */
-/*   Updated: 2024/10/23 11:10:57 by smarquez         ###   ########.fr       */
+/*   Updated: 2024/10/28 14:37:18 by smarquez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	ft_hexadec_u(unsigned int nbr)
 {
-	char	hex_digits[] = "0123456789ABCEDF";
+	char	hex_digits[] = "0123456789ABCDEF";
 	char	buffer[16];
 	int		i;
 	int		printed_chars;

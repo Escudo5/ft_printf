@@ -6,7 +6,7 @@
 /*   By: smarquez <smarquez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/16 15:39:33 by smarquez          #+#    #+#             */
-/*   Updated: 2024/10/23 11:11:50 by smarquez         ###   ########.fr       */
+/*   Updated: 2024/10/28 14:41:08 by smarquez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,6 @@
 char ft_putchar(int c)
 {
     int a;
-    write(1, &a, 1);
-    return (a);
+    write(1, &c, 1);
+    return (1);
 }

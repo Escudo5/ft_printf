@@ -6,7 +6,7 @@
 /*   By: smarquez <smarquez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/16 11:41:39 by smarquez          #+#    #+#             */
-/*   Updated: 2024/10/23 12:45:50 by smarquez         ###   ########.fr       */
+/*   Updated: 2024/10/28 14:53:53 by smarquez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,21 +21,21 @@ static int	specifier_ft(char specifier, va_list args)
 	else if (specifier == 'c')
 		return (ft_putchar(va_arg(args, int)));
 	else if (specifier == 'u')
-		return (ft_putnbru(va_arg(args, int)));
+		return (ft_putnbru(va_arg(args, unsigned int)));
 	else if (specifier == 'p')
 		return (ft_putptr(va_arg(args, void *)));
 	else if (specifier == 'x')
-		return (ft_hexadec(va_arg(args, int)));
+		return (ft_hexadec(va_arg(args, unsigned int)));
 	else if (specifier == 'X')
-		return (ft_hexadec_u(va_arg(args, int)));
+		return (ft_hexadec_u(va_arg(args, unsigned int)));
 	else if (specifier == '%')
 		return (ft_putchar('%'));
 	return (0);
 }
 
-int	print_normal_char(const char *format)
+int	print_normal_char(char c)
 {
-	write(1, format, 1);
+	write(1, &c, 1);
 	return (1);
 }
 
@@ -47,7 +47,6 @@ int	handle_specifier(const char **format, va_list vargs)
 	if (**format == '%' && *(*format + 1) == '%')
 	{
 		write(1, "%", 1);
-		result++;
 		*format += 2;
 		return (1);
 	}
@@ -63,7 +62,6 @@ int	handle_specifier(const char **format, va_list vargs)
 int	ft_printf(char const *format, ...)
 {
 	va_list	vargs;
-	char	specifier;
 	int		result;
 
 	result = 0;
@@ -73,8 +71,7 @@ int	ft_printf(char const *format, ...)
 		if (*format == '%')
 			result += handle_specifier(&format, vargs);
 		else
-			result += print_normal_char(format);
-		format++;
+			result += print_normal_char(*format++);
 	}
 	va_end(vargs);
 	return (result);
