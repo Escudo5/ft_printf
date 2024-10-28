@@ -6,7 +6,7 @@
 /*   By: smarquez <smarquez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/18 12:54:17 by escudo5           #+#    #+#             */
-/*   Updated: 2024/10/28 15:01:31 by smarquez         ###   ########.fr       */
+/*   Updated: 2024/10/28 15:31:03 by smarquez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,16 +17,19 @@ int	ft_putptr(void *ptr)
 	unsigned long	address;
 	char			hex_digits[] = "0123456789abcdef";
 	int				printed_chars;
+	int				i;
 
 	address = (unsigned long)ptr;
-	if (!address)
-		return (write(1, "0x0", 3));
 	printed_chars = write(1, "0x", 2);
+	if (!address)
+		return (printed_chars + write(1, "0", 1));
+	i = 0;
 	while (address)
 	{
-		printed_chars++;
-		write(1, &hex_digits[address % 16], 1);
+		i = (address % 16);
+		printed_chars += write(1, &hex_digits[i], 1);
 		address /= 16;
 	}
 	return (printed_chars);
 }
+

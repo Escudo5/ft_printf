@@ -6,7 +6,7 @@
 /*   By: smarquez <smarquez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/17 12:53:46 by smarquez          #+#    #+#             */
-/*   Updated: 2024/10/28 14:42:50 by smarquez         ###   ########.fr       */
+/*   Updated: 2024/10/28 15:19:54 by smarquez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ int	ft_putnbru(unsigned int nbr)
 	printed_chars = 0;
 	if (nbr > 9)
 		printed_chars += ft_putnbru(nbr / 10);
-	printed_chars += ((nbr % 10) + '0');
-	return (printed_chars);
+	ft_putchar((nbr % 10) + '0');
+	printed_chars++;
+	return(printed_chars);
 }
