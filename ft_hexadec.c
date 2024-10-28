@@ -6,13 +6,13 @@
 /*   By: smarquez <smarquez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/21 11:36:59 by smarquez          #+#    #+#             */
-/*   Updated: 2024/10/23 11:11:01 by smarquez         ###   ########.fr       */
+/*   Updated: 2024/10/28 15:47:59 by smarquez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_hexadec(unsigned int nbr)
+int	ft_hexadec(unsigned long nbr)
 {
 	char	hex_digits[] = "0123456789abcdef";
 	char	buffer[16];
