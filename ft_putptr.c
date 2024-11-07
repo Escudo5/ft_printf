@@ -6,7 +6,7 @@
 /*   By: smarquez <smarquez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/18 12:54:17 by escudo5           #+#    #+#             */
-/*   Updated: 2024/10/29 11:58:09 by smarquez         ###   ########.fr       */
+/*   Updated: 2024/11/07 16:21:45 by smarquez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,5 @@ int	ft_putptr(void *ptr)
 	}
 	while (--i >= 0)
 		printed_chars += write(1, &hex[i], 1);
-
 	return (printed_chars);
 }
