@@ -2,7 +2,7 @@ NAME = libftprintf.a
 
 FLAGS = -Wall -Werror -Wextra
 
-CFILES = ft_hexadec.c ft_hexadec_u.c ft_printf.c ft_putchar.c ft_putnbr.c ft_putnbru.c ft_putptr.c ft_putstr.c 
+CFILES = ft_hexadec.c ft_printf.c ft_putchar.c ft_putnbr.c ft_putnbru.c ft_putptr.c ft_putstr.c 
 
 OBJS = $(CFILES:.c=.o)
 

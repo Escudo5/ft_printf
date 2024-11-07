@@ -6,37 +6,34 @@
 /*   By: smarquez <smarquez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/21 11:36:59 by smarquez          #+#    #+#             */
-/*   Updated: 2024/10/28 15:47:59 by smarquez         ###   ########.fr       */
+/*   Updated: 2024/11/07 17:26:04 by smarquez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_hexadec(unsigned long nbr)
+int	ft_hexadec(unsigned long nbr, int upper)
 {
-	char	hex_digits[] = "0123456789abcdef";
-	char	buffer[16];
+	char	*hex_digits;
+	char	buffer[17];
 	int		i;
 	int		printed_chars;
 
-	i = 0;
+	i = 15;
 	printed_chars = 0;
-	if (nbr == 0)
-	{
-		write(1, "0", 1);
-		return (1);
-	}
-	while (nbr > 0)
+	if (upper)
+		hex_digits = "0123456789ABCDEF";
+	else
+		hex_digits = "0123456789abcdef";
+	while (i >= 0)
 	{
 		buffer[i] = hex_digits[nbr % 16];
 		nbr /= 16;
-		i++;
-	}
-	while (i > 0)
-	{
 		i--;
-		write(1, &buffer[i], 1);
-		printed_chars++;
 	}
+	i = 0;
+	while (buffer[i] == '0' && i < 15)
+		i++;
+	printed_chars = write(1, &buffer[i], 16 - i);
 	return (printed_chars);
 }

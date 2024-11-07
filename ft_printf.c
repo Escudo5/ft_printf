@@ -6,7 +6,7 @@
 /*   By: smarquez <smarquez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/16 11:41:39 by smarquez          #+#    #+#             */
-/*   Updated: 2024/10/28 14:53:53 by smarquez         ###   ########.fr       */
+/*   Updated: 2024/11/07 17:32:08 by smarquez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,9 @@ static int	specifier_ft(char specifier, va_list args)
 	else if (specifier == 'p')
 		return (ft_putptr(va_arg(args, void *)));
 	else if (specifier == 'x')
-		return (ft_hexadec(va_arg(args, unsigned int)));
+		return (ft_hexadec(va_arg(args, unsigned int), 0));
 	else if (specifier == 'X')
-		return (ft_hexadec_u(va_arg(args, unsigned int)));
+		return (ft_hexadec(va_arg(args, unsigned int), 1));
 	else if (specifier == '%')
 		return (ft_putchar('%'));
 	return (0);
