@@ -6,7 +6,7 @@
 /*   By: smarquez <smarquez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/16 11:41:39 by smarquez          #+#    #+#             */
-/*   Updated: 2024/11/12 12:09:31 by smarquez         ###   ########.fr       */
+/*   Updated: 2024/11/13 14:55:15 by smarquez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,8 +50,8 @@ int	handle_specifier(const char **format, va_list vargs)
 		*format += 2;
 		return (1);
 	}
-	else if (**format)
-		(*format)++;
+	/*else if (**format)
+		(*format)++;*/
 	else if (**format == '%')
 	{
 		(*format)++;
